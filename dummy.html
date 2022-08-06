@@ -1,0 +1,49 @@
+<html>
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+        }
+        img {
+            width: 500;
+        }
+        h1 {
+            color: blanchedalmond;
+            font-family: sans-serif;
+            font-size: 70px;
+        }
+        h2 {
+            color: rgb(195, 195, 209);
+            font-size: 80px;
+        }
+        button {
+            color: white;
+            background-color: brown;
+            width: 129;
+            height: 199;
+            font-size: 50;
+        }
+        .big-poppa {
+            width: 499;
+            height: 199;
+            font-size: 80;
+        }
+    </style>
+    <body>
+    <img src="https://i.pinimg.com/736x/65/dd/5a/65dd5a9c626e9b3407ff5d216a5607a7.jpg" alt="">
+    <h1>Put your yes/no question below to know if it will happen or not:</h1>
+    <input type="text" class="big-poppa">
+    <button onclick="camomile()">Click me</button>
+    <h2 id="result">Your result be displayed here</h2>
+    <script>
+        function camomile() {
+        var value = Math.floor((Math.random()*100) + 1)
+        if (value%2 == 0) {
+        return document.getElementById("result").innerHTML = "YES"
+        } else {
+        return document.getElementById("result").innerHTML = "YES (NO)"
+        }
+        } 
+    </script>
+    </body>
+</html>

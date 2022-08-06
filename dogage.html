@@ -1,0 +1,38 @@
+<html>
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+        }
+        img {
+            width: 500;
+        }
+        h1 {
+            color: blanchedalmond;
+            font-family: sans-serif;
+            font-size: 60pt;
+        }
+        h2 {
+            color: blue;
+        }
+        button {
+            color: white;
+            background-color: brown;
+        }
+    </style>
+    <body>
+    <img src="https://sarx.org.uk/wp-content/uploads/2017/06/Asian-girl-with-dog.jpg">
+    <h1>Convert the age of your dog to human years</h1>
+    <input type="number" id="age">
+    <button onclick="dogAge()">Submit</button>
+    <h2 id="result">Converted age will be displayed here</h2>
+    <p>WAKE UP NEO</p>
+    <script>
+        function dogAge() {
+        var pururin = document.getElementById("age").value
+        var age = +pururin + 16
+        return document.getElementById("result").innerHTML = age
+        } 
+    </script>
+    </body>
+</html>

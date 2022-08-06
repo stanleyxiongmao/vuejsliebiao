@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        background-color: black; 
+    }
+    h1 {
+color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #a511c0,
+      0 0 82px #a511c0,
+      0 0 92px #a511c0,
+      0 0 102px #a511c0,
+      0 0 151px #0fa;
+    font-size: 4.2rem;
+  animation: flicker 1.5s infinite alternate;
+        
+    }
+    li {
+        color:whitesmoke;
+        font-size: 3rem;
+        text-align: left;
+    }
+    
+    
+.minp {
+position: relative;
+  height: 42px;
+  width: 360px;
+  font-size: 2rem;
+  border-color: thistle;
+}
+.done {
+  text-decoration: line-through;
+}
+</style>
+
+<script src="https://unpkg.com/vue@3"></script>
+<body>
+
+    <div id="app">
+        <h1 class="myh"> 我的日程安排</h1>
+        <form @submit.prevent="addItem">
+            <input v-model="newText" placeholder="请输入文字"/>
+            <button>添加任务</button>
+        </form>
+        <ul>
+            <li v-for="todo in filteredList" :key="todo.id">
+            <input type="checkbox" v-model="todo.done">
+            <span :class="{done: todo.done}"> {{todo.text}}</span>
+            <button @click="removeItem(todo)">删</button>
+            </li>
+            <button @click="hideCompleted = !hideCompleted">
+                {{hideCompleted? "显示" : "隐藏"}}
+            </button>
+        </ul>
+    </div>
+</body>
+<script>
+    const { createApp } = Vue
+    createApp({
+        data() {
+            return {
+                newText: '',
+                hideCompleted: false,
+                listy: [
+                    { text: '买蔬菜', done: true },
+                    { text: "看电影", done: true },
+                    { text: "看电影", done: false },
+                ]
+            }
+        },
+        computed: {
+            filteredList() {
+                return this.hideCompleted
+                ? this.listy.filter((x) => !x.done)
+                : this.listy
+            }
+        },
+        methods: {
+            addItem() {
+                this.listy.push({ text: this.newText, done: false}),
+                this.newText = ''
+            },
+            removeItem(todo) {
+            this.listy= this.listy.filter((y) => y !== todo)
+            }
+            
+        }
+
+    }).mount('#app')
+
+</script>
+</html>

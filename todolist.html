@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        background-color: black; 
+    }
+    h1 {
+color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #a511c0,
+      0 0 82px #a511c0,
+      0 0 92px #a511c0,
+      0 0 102px #a511c0,
+      0 0 151px #0fa;
+    font-size: 4.2rem;
+  animation: flicker 1.5s infinite alternate;
+        
+    }
+    li {
+        color:whitesmoke;
+        font-size: 3rem;
+        text-align: left;
+    }
+    
+    
+.minp {
+position: relative;
+  height: 42px;
+  width: 360px;
+  font-size: 2rem;
+  border-color: thistle;
+}
+</style>
+<body>
+    <h1 class="myh"> 我的日程安排</h1>
+    <input type="text" id="myinp" class="minp">
+    <br>
+    <br>
+    <br>
+    <div>
+    <ul id="demo" class="myclass"></ul>
+    </div>
+
+</body>
+<script>
+//method for adding a task via the enter button
+var input = document.getElementById("myinp")
+input.addEventListener("keyup", function(event) {
+if (event.keyCode === 13) {
+    event.preventDefault();
+    addItem().click()
+}
+//pressing delete to remove the last item in the list 
+if (event.keyCode === 46) {
+    event.preventDefault();
+    removeLast().click()
+}
+});
+
+
+//adding task function
+function addItem() {    
+let arr = myinp.value;
+let buty = demo.innerHTML += "<li>" + arr + "</li>"
+myinp.value = ""
+}
+
+
+//removing task function
+
+function removeLast() {
+demo.removeChild(demo.firstElementChild)
+}
+
+</script>
+</html> m
